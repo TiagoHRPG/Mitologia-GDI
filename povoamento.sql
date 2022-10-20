@@ -14,13 +14,13 @@ CREATE TABLE MITOLOGIA(
     Nac_epoca NUMBER,
     Nac_regiao VARCHAR(50),
     Eh_politeista VARCHAR(1) DEFAULT 'N',
-    CONSTRAINT PK_MITOLOGIA PRIMARY KEY (Nac_epoca,Nac_regiao),
+    CONSTRAINT PK_MITOLOGIA PRIMARY KEY (Nac_epoca, Nac_regiao),
     CONSTRAINT FK_POVO_MIT FOREIGN KEY (Nac_epoca,Nac_regiao) REFERENCES POVO (Nac_epoca, Nac_regiao)
 );
 
 -- CRIA TABELA DEUS
 CREATE TABLE DEUS(
-    Nome_deus VARCHAR(30),
+    Nome_deus VARCHAR(50),
     Funcao_1 VARCHAR(50) DEFAULT 'Nao definido',
     Funcao_2 VARCHAR(50) DEFAULT 'Nao definido',
     CONSTRAINT PK_DEUS PRIMARY KEY (Nome_deus)
@@ -147,42 +147,44 @@ INSERT INTO POVO VALUES (2000, 'BRASILEIRA');
 
 
 -- INSERE DADOS NA TABELA MITOLOGIA
+INSERT INTO MITOLOGIA VALUES (-3000, 'EGIPCIA', 'S');
 INSERT INTO MITOLOGIA VALUES (-3000, 'GREGA', 'S');
 INSERT INTO MITOLOGIA VALUES (-3000, 'NORDICA', 'S');
 INSERT INTO MITOLOGIA VALUES (-3000, 'NIPONICA', 'S');
 INSERT INTO MITOLOGIA VALUES (2000,  'EGIPCIA', 'S');
 INSERT INTO MITOLOGIA VALUES (2000,  'BRASILEIRA', 'N');
+INSERT INTO MITOLOGIA VALUES (2000, 'NIPONICA', 'S');
+
 
 -- INSERE DADOS NA TABELA DEUS
-INSERT INTO DEUS (Nome_deus, Funcao_1, Funcao_2) VALUES ('ZEUS','PAI DOS DEUSES', 'DEUS DOS CEUS');                  -- Grecia
-INSERT INTO DEUS (Nome_deus, Funcao_1)           VALUES ('POSEIDON','DEUS DOS MARES');                               -- Grecia
-INSERT INTO DEUS (Nome_deus, Funcao_1, Funcao_2) VALUES ('HADES', 'DEUS DO SUBMUNDO', 'DEUS DOS MORTOS');            -- Grecia
-INSERT INTO DEUS (Nome_deus, Funcao_1)           VALUES ('CHRONOS', 'DEUS DO TEMPO');                                -- Grecia
-INSERT INTO DEUS (Nome_deus, Funcao_1)           VALUES ('ANUBIS', 'DEUS DOS MORTOS');                               -- Egito
-INSERT INTO DEUS (Nome_deus, Funcao_1)           VALUES ('NEFTIS', 'SENHORA DAS SOMBRAS');                           -- Egito
-INSERT INTO DEUS (Nome_deus, Funcao_1, Funcao_2) VALUES ('ISIS', 'DEUSA DA MATERNIDADE', 'DEUSA DA FERITILIDADE');   -- Egito
-INSERT INTO DEUS (Nome_deus, Funcao_1)           VALUES ('OSIRIS', 'DEUS DO JULGAMENTO');                            -- Egito
-INSERT INTO DEUS (Nome_deus, Funcao_1, Funcao_2) VALUES ('SON GOKU', 'DEUS MACACO', 'OOZARO');                       -- Japao
-INSERT INTO DEUS (Nome_deus, Funcao_1)           VALUES ('SON GOHAN', 'SAYAJIN', 'SUPER SAIYAJIN');                  -- Japao
-INSERT INTO DEUS (Nome_deus)                     VALUES ('SON PAN');                                                 -- Japao
-INSERT INTO DEUS (Nome_deus, Funcao_1, Funcao_2) VALUES ('AMATERATSU', 'DEUSA DO SOL');                              -- Japao
-INSERT INTO DEUS (Nome_deus, Funcao_1, Funcao_2) VALUES ('IZANAMI', 'DEUSA DA MORTE', 'DEUSA DA CRIACAO');           -- Japao
-INSERT INTO DEUS (Nome_deus, Funcao_1)           VALUES ('IZANAGI', 'DEUS DA CRIACAO');                              -- Japao
-INSERT INTO DEUS (Nome_deus, Funcao_1)           VALUES ('TUPA', 'DEUS DO TROVAO');                                  -- Brasil
-INSERT INTO DEUS (Nome_deus, Funcao_1)           VALUES ('AMENOFIS', 'DEUS DOS ARQUITETOS');                         -- Egito
-INSERT INTO DEUS (Nome_deus, Funcao_1)           VALUES ('ATENA', 'DEUSA DA SABEDORIA');                             -- Grecia
-INSERT INTO DEUS (Nome_deus, Funcao_1)           VALUES ('APOLO','DEUS DO SOL');                                     -- Grecia
-INSERT INTO DEUS (Nome_deus, Funcao_1)           VALUES ('THOR', 'DEUS DO TROVAO');                                  -- Nordica
-INSERT INTO DEUS (Nome_deus, Funcao_1)           VALUES ('LOKI', 'DEUS DA TRAPACA');                                 -- Nordica
-INSERT INTO DEUS (Nome_deus, Funcao_1, Funcao_2) VALUES ('ODIN', 'DEUS DA VIDA', 'DEUS DA MORTE');                   -- Nordica
-INSERT INTO DEUS (Nome_deus)                     VALUES ('LORRIDE');                                                 -- Nordica
+INSERT INTO DEUS (Nome_deus, Funcao_1, Funcao_2) VALUES ('ZEUS', 'PAI DOS DEUSES', 'DEUS DOS CEUS');
+INSERT INTO DEUS (Nome_deus, Funcao_1)           VALUES ('POSEIDON','DEUS DOS MARES');                               
+INSERT INTO DEUS (Nome_deus, Funcao_1, Funcao_2) VALUES ('HADES', 'DEUS DO SUBMUNDO', 'DEUS DOS MORTOS');            
+INSERT INTO DEUS (Nome_deus, Funcao_1)           VALUES ('CHRONOS', 'DEUS DO TEMPO');                                
+INSERT INTO DEUS (Nome_deus, Funcao_1)           VALUES ('ANUBIS', 'DEUS DOS MORTOS');                               
+INSERT INTO DEUS (Nome_deus, Funcao_1)           VALUES ('NEFTIS', 'SENHORA DAS SOMBRAS');                           
+INSERT INTO DEUS (Nome_deus, Funcao_1, Funcao_2) VALUES ('ISIS', 'DEUSA DA MATERNIDADE', 'DEUSA DA FERITILIDADE'); 
+INSERT INTO DEUS (Nome_deus, Funcao_1)           VALUES ('OSIRIS', 'DEUS DO JULGAMENTO');                            
+INSERT INTO DEUS (Nome_deus, Funcao_1, Funcao_2) VALUES ('SON GOKU', 'DEUS MACACO', 'OOZARO');                       
+INSERT INTO DEUS (Nome_deus, Funcao_1, Funcao_2) VALUES ('SON GOHAN', 'SAYAJIN', 'SUPER SAIYAJIN');                  
+INSERT INTO DEUS (Nome_deus)                     VALUES ('SON PAN');                                                 
+INSERT INTO DEUS (Nome_deus, Funcao_1)           VALUES ('AMATERATSU', 'DEUSA DO SOL');                              
+INSERT INTO DEUS (Nome_deus, Funcao_1, Funcao_2) VALUES ('IZANAMI', 'DEUSA DA MORTE', 'DEUSA DA CRIACAO');           
+INSERT INTO DEUS (Nome_deus, Funcao_1)           VALUES ('IZANAGI', 'DEUS DA CRIACAO');                              
+INSERT INTO DEUS (Nome_deus, Funcao_1)           VALUES ('TUPA', 'DEUS DO TROVAO');                                  
+INSERT INTO DEUS (Nome_deus, Funcao_1)           VALUES ('AMENOFIS', 'DEUS DOS ARQUITETOS');                         
+INSERT INTO DEUS (Nome_deus, Funcao_1)           VALUES ('ATENA', 'DEUSA DA SABEDORIA');                             
+INSERT INTO DEUS (Nome_deus, Funcao_1)           VALUES ('APOLO','DEUS DO SOL');                                     
+INSERT INTO DEUS (Nome_deus, Funcao_1)           VALUES ('THOR', 'DEUS DO TROVAO');                                  
+INSERT INTO DEUS (Nome_deus, Funcao_1)           VALUES ('LOKI', 'DEUS DA TRAPACA');                                 
+INSERT INTO DEUS (Nome_deus, Funcao_1, Funcao_2) VALUES ('ODIN', 'DEUS DA VIDA', 'DEUS DA MORTE');                   
+INSERT INTO DEUS (Nome_deus)                     VALUES ('LORRIDE');                                                 
 
 -- INSERE DADOS NA TABELA TERRITORIO
 INSERT INTO TERRITORIO VALUES ('OLIMPO', 'ZEUS');
 INSERT INTO TERRITORIO VALUES ('ASGARD', 'ODIN');
 INSERT INTO TERRITORIO VALUES ('SUBMUNDO', 'HADES');
 INSERT INTO TERRITORIO VALUES ('TUAT', 'OSIRIS');
-INSERT INTO TERRITORIO VALUES ('DENDERA', 'HATOR');
 
 -- INSERE DADOS NA TABELA CRIATURA
 INSERT INTO CRIATURA VALUES ('MEDUSA', 'PETRIFICACAO', 'GREGA', -3000);
@@ -237,21 +239,38 @@ INSERT INTO FEITOS VALUES ('SEIYA',    1, 'DERROTOU O SHAKA DE VIRGEM');
 INSERT INTO FEITOS VALUES ('BEOWULF',  1, 'MATOU O DRAGAO');
 
 -- INSERE DADOS NA TABELA ADORA
-INSERT INTO ADORA VALUES ('ZEUS', -3000, 'GREGA');
-INSERT INTO ADORA VALUES ('ATENAS', -3000, 'GREGA');
-INSERT INTO ADORA VALUES ('HADES', -3000, 'GREGA');
+
+INSERT INTO ADORA VALUES ('ZEUS', -3000, 'GREGA');                             
+INSERT INTO ADORA VALUES ('HADES', -3000, 'GREGA');            
+INSERT INTO ADORA VALUES ('CHRONOS', -3000, 'GREGA');                                
+INSERT INTO ADORA VALUES ('ANUBIS', -3000, 'EGIPCIA');                               
+INSERT INTO ADORA VALUES ('NEFTIS',-3000 , 'EGIPCIA');                                                    
+INSERT INTO ADORA VALUES ('SON GOKU', 2000 , 'NIPONICA');                       
+INSERT INTO ADORA VALUES ('SON GOHAN', 2000 , 'NIPONICA');                  
+INSERT INTO ADORA VALUES ('SON PAN', 2000 , 'NIPONICA');                                                                              
+INSERT INTO ADORA VALUES ('IZANAMI', -3000, 'NIPONICA');           
+INSERT INTO ADORA VALUES ('IZANAGI', -3000, 'NIPONICA');                                                            
+INSERT INTO ADORA VALUES ('AMENOFIS', -3000, 'NIPONICA');                                                 
+INSERT INTO ADORA VALUES ('APOLO', -3000, 'GREGA');                                     
+INSERT INTO ADORA VALUES ('THOR', -3000, 'NORDICA');                                  
+INSERT INTO ADORA VALUES ('LOKI', -3000, 'NORDICA');                                                 
+INSERT INTO ADORA VALUES ('LORRIDE',-3000, 'NORDICA');              
+INSERT INTO ADORA VALUES ('POSEIDON', -3000, 'GREGA');
+INSERT INTO ADORA VALUES ('ATENA', -3000, 'GREGA');
+INSERT INTO ADORA VALUES ('ISIS', -3000, 'EGIPCIA');
+INSERT INTO ADORA VALUES ('ODIN', -3000, 'NORDICA');
 INSERT INTO ADORA VALUES ('OSIRIS', 2000, 'EGIPCIA');
 INSERT INTO ADORA VALUES ('AMATERATSU', -3000, 'NIPONICA');
 INSERT INTO ADORA VALUES ('TUPA', 2000, 'BRASILEIRA');
 
 -- INSERE DADOS NA TABELA TEMPLO
-INSERT INTO TEMPLO VALUES('PARTENON', 'ATENAS');
+INSERT INTO TEMPLO VALUES('PARTENON', 'ATENA');
 INSERT INTO TEMPLO VALUES('PHILAE', 'ISIS');
 INSERT INTO TEMPLO VALUES('SUNIAO', 'POSEIDON');
 INSERT INTO TEMPLO VALUES('REYKJAVIK', 'ODIN');
 
 -- INSERE DADOS NA TABELA ANCESTRALIDADE
-INSERT INTO ANCESTRALIDADE VALUES ('NEFTIS', 'ANIBUS', 'FILHO');
+INSERT INTO ANCESTRALIDADE VALUES ('NEFTIS', 'ANUBIS', 'FILHO');
 INSERT INTO ANCESTRALIDADE VALUES ('ZEUS', 'APOLO', 'FILHO');
 INSERT INTO ANCESTRALIDADE VALUES ('ZEUS', 'ATENA', 'FILHA');
 INSERT INTO ANCESTRALIDADE VALUES ('ODIN', 'THOR', 'FILHO');
@@ -263,7 +282,7 @@ INSERT INTO ANCESTRALIDADE VALUES ('SON GOKU', 'SON PAN', 'NETO');
 
 -- INSERE DADOS NA TABELA ENFRENTA
 INSERT INTO ENFRENTA VALUES ('HERCULES', 'CRETA', 'MEDUSA', TO_DATE('20/10/-3000','DD/MM/SYYYY'));
-INSERT INTO ENFRENTA VALUES ('SEYA', 'RIO DE JANEIRO', 'MAJIN BOO', TO_DATE('12/10/+2022','DD/MM/SYYYY'));
+INSERT INTO ENFRENTA VALUES ('SEIYA', 'RIO DE JANEIRO', 'MAJIN BOO', TO_DATE('12/10/+2022','DD/MM/SYYYY'));
 INSERT INTO ENFRENTA VALUES ('SIEGFRIED', 'ACRE', 'MULA SEM CABECA', TO_DATE('22/04/1903','DD/MM/SYYYY'));
 INSERT INTO ENFRENTA VALUES ('AQUILES', 'COLISEU', 'MINOTAURO', TO_DATE('10/01/-4001','DD/MM/SYYYY'));
 INSERT INTO ENFRENTA VALUES ('ROBSON', 'CIN', 'ALUNO', TO_DATE('24/10/+2022','DD/MM/SYYYY'));
