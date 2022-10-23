@@ -68,12 +68,15 @@ FROM Heroi H
 GROUP BY H.Nac_regiao;
 
 
--- Selecionar os deuses que nao tem uma linhagem
+-- Selecionar os deuses que nao tem uma linhagem e nem funcao
 -- JUNÇÃO EXTERNA
 
 SELECT D.Nome_deus
 FROM Deus D LEFT OUTER JOIN Semideus SD ON (D.Nome_deus = SD.Nome_deus)
-WHERE SD.Nome_semideus IS NULL;
+WHERE SD.Nome_semideus IS NULL 
+    AND Funcao_1 = 'Nao definido' 
+    AND Funcao_2 = 'Nao definido';
+
 
 
 -- Selecionar os deuses que patronam algum territorio
