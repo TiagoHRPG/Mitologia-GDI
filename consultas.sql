@@ -19,14 +19,15 @@ WHERE A.Nac_epoca = (SELECT H.Nac_epoca
                      FROM Heroi H
                      WHERE H.Nome_heroi = 'AQUILES');
                     
--- Selecionar todos os feitos de herois de uma região
+-- Selecionar todas criaturas da mesma mitologia que o heroi AQUILES
 -- SUBCONSULTA DO TIPO LINHA
 
-SELECT F.Descricao_feito
-FROM Feitos F
-WHERE F.nome_heroi IN (SELECT H.Nome_heroi
-                       FROM Heroi H
-                       WHERE H.Nac_regiao = 'GREGA');
+SELECT c.nome_criatura
+FROM CRIATURA c
+WHERE (c.Nac_epoca, c.Nac_regiao) =
+    (SELECT h.Nac_epoca, h.Nac_regiao
+    FROM HEROI h
+    WHERE h.nome_heroi = 'AQUILES')
                      
 
 -- Selecionar nome dos templos de mitologias que não possuem criaturas
